@@ -220,3 +220,45 @@ voz se puede revisar un ALCANCE; un diff no. Voz = alcance, pantalla = contenido
   técnico.** No me des la razón por defecto.
 - Código y nombres **en castellano** (dominio), como en la estructura de arriba.
 - No construyas nunca nada que escuche en un puerto.
+
+## Flujo de trabajo
+
+**Regla, sin excepciones: `main` no se toca directamente.** Toda funcionalidad nueva
+vive en su propia rama y entra por una pull request.
+
+```
+issue  →  rama  →  commits  →  PR  →  revisión  →  main
+```
+
+### Ramas
+
+Una rama por issue. El número va en el nombre, para que el historial de git y el
+tablero de issues cuenten la misma historia sin tener que cruzarlos a mano:
+
+```
+feat/<número>-<descripción-corta>      feat/3-auditor-jsonl
+fix/<número>-<descripción-corta>       fix/12-rama-git-arbol-sucio
+docs/<número>-<descripción-corta>      docs/0-flujo-de-trabajo
+```
+
+### Commits
+
+- **Conventional commits**, en inglés, con el ámbito del módulo:
+  `feat(auditor): register every decision in append-only JSONL`
+- **Nunca** `Co-Authored-By` ni atribución a herramientas de IA.
+- Un commit debe dejar la suite en verde. Si no compila, no es un commit.
+
+### Pull requests
+
+- No se abre una PR hasta que `npm test` está **en verde**.
+- El cuerpo enlaza la issue con `Closes #N`, para que se cierre sola al fusionar.
+- La PR explica **causa → solución → efecto**, no solo qué ficheros cambiaron.
+- Si la PR toca `src/dominio/`, hay que justificarlo: el núcleo se modifica poco
+  y siempre a propósito.
+
+### Excepción histórica
+
+Los commits `1ff963d` … `b375e5c` —el README inicial, la Fase 0 y la issue #1—
+se hicieron directamente sobre `main`, antes de establecer esta regla. Queda
+anotado aquí en vez de reescribir el historial: **el registro es más valioso que
+la apariencia de limpieza.** Es el mismo criterio que aplicamos al Auditor.
