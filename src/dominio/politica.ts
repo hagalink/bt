@@ -33,8 +33,18 @@ export const REGIMENES_MVP: Readonly<Record<TipoIntencion, Regimen>> = {
   borrar_fichero: 'consultado',
 }
 
+/**
+ * El subárbol donde vive el registro de auditoría.
+ *
+ * Fuente única de verdad: de aquí sale tanto la zona excluida de la Política
+ * como la ruta que usa el `AuditorFichero`. Si fueran dos constantes
+ * distintas, podrían divergir y el registro acabaría fuera de su propia
+ * protección sin que nadie se enterara.
+ */
+export const DIRECTORIO_REGISTRO = 'logs'
+
 /** El subárbol del registro de auditoría. */
-export const ZONAS_EXCLUIDAS_MVP: readonly string[] = ['logs']
+export const ZONAS_EXCLUIDAS_MVP: readonly string[] = [DIRECTORIO_REGISTRO]
 
 export function crearPolitica(
   raiz: string,
