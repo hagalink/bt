@@ -1,0 +1,20 @@
+{
+  "name": "bt",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Perímetro de seguridad por voz sobre un modelo local. El modelo propone, no decide.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "verificar": "tsc --noEmit",
+    "compilar": "tsc",
+    "test": "tsc && node --test dist/tests/"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2",
+    "@types/node": "^20.19.0"
+  }
+}

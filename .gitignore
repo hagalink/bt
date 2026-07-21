@@ -22,8 +22,8 @@ modelos/
 
 # Registro de auditoría: contiene rutas y órdenes reales del usuario.
 # Repositorio PÚBLICO: esto no sale de la máquina jamás.
+logs/
 *.jsonl
-auditoria/
 
 # Pidfile del disparador (SIGUSR1)
 *.pid
@@ -32,6 +32,8 @@ auditoria/
 coverage/
 
 # Sistema operativo y editores
+*.swp
+*.swo
 .DS_Store
 .idea/
 .vscode/*
