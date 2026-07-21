@@ -36,6 +36,13 @@ export type MotivoRechazo =
   | 'ruta_no_absoluta'
   /** Resolver `..`, `.` y enlaces simbólicos es I/O: no es asunto del núcleo. */
   | 'ruta_no_resuelta'
+  /**
+   * El fichero no existe y su directorio padre tampoco.
+   *
+   * BT no crea árboles de directorios: eso sería alcance implícito, y el
+   * alcance no se infiere, se declara.
+   */
+  | 'directorio_padre_inexistente'
   /** Fuera del perímetro del proyecto. */
   | 'ruta_fuera_de_raiz'
   /** Dentro de la raíz, pero en un subárbol que el perímetro se reserva. */
