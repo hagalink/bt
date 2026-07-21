@@ -1,0 +1,38 @@
+# Dependencias
+node_modules/
+
+# Compilación
+dist/
+*.tsbuildinfo
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Artefactos de BT en tiempo de ejecución
+# Pesos de modelos (whisper.cpp, Piper): binarios grandes, se descargan, no se versionan
+modelos/
+*.bin
+*.gguf
+*.onnx
+
+# Capturas de audio temporales del Transcriptor
+*.wav
+
+# Registro de auditoría: contiene rutas y órdenes reales del usuario.
+# Repositorio PÚBLICO: esto no sale de la máquina jamás.
+*.jsonl
+auditoria/
+
+# Pidfile del disparador (SIGUSR1)
+*.pid
+
+# Cobertura de tests
+coverage/
+
+# Sistema operativo y editores
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
